@@ -1,0 +1,70 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.heading{
+	color: #002378;
+	margin-top: 12px;
+	font-weight: bolder;
+	font-size:  50px;
+}
+
+.notifications{
+	margin: 0;  font-size: 20px; background: lightgreen; display: block;
+	margin-top: 10px;
+}
+
+.data{
+	margin-top: 25px;
+	width: 100%;
+}
+
+.country-no{
+	font-size: 40px;
+	color: red;
+	font-size: bold;
+}
+.card-holder{
+	width: auto;
+	justify-content: center;
+	margin-top: 30px;
+	align-content: center;
+	align-items: center;	
+	display: flex;
+	
+}
+.card{
+	float: left;
+	width: 43%;	
+	height: auto;
+    margin: 12px;
+    padding: 10px;
+    position: relative;
+	box-shadow: 2px 2px 3px 3px 1px lightgray;
+	border-width: 4px;
+	border-style: solid;
+	border-radius: 10px;
+	border-color: lightgrey;
+	font-size: 37px;
+	
+}
+#cases, #recovered, #deaths, #active
+{
+	font-weight: bolder;
+
+}
+#no-cases, #no-recovered, #no-active, #no-deaths
+{
+	padding-top: 15px;
+}
+
+.noholder{
+	margin: 15px;
+	margin-top: 23px;
+	width: 60%;
+	background: lightgray;
+	border-radius: 10px;
+	padding: 12px;
+
+}

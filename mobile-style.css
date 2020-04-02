@@ -1,0 +1,25 @@
+@media only screen and (max-device-width: 600px){
+	.heading{
+		margin-top: 23px; 
+		font-size: 70px;
+		border-color: red;
+	}
+	.notifications{
+		display: none;
+	}
+	.country-no{
+		font-size: 60px;
+	}
+	.card{
+		width: 110%;
+		margin-left: -5%;
+		font-size: 33px;
+		
+	}
+	#cases, #recovered, #deaths, #active
+{
+	font-weight: bolder;
+	font-size: 40px;
+
+}
+}
