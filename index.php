@@ -3,7 +3,24 @@ if (isset($_GET["lang"])) {
   # code...
   $lang = $_GET["lang"];
 
-  if ($lang == "hindi") {
+  if ($lang == "gujarati") {
+    # code...
+    $header = "કોવિડ 19 લાઇવ ટ્રેકર | ગુજરાતી | બહુભાષી | Gladiolus Language Nectar";
+    $heading = "બહુભાષી કોવિડ 19 લાઇવ ટ્રેકર";
+    $noca = "અસરગ્રસ્ત દેશોની સંખ્યા : ";
+    $cases = "કેસ";
+    $deaths = "મૃત્યુ";
+    $recovered = "સ્વસ્થ";
+    $active = "ચેપગ્રસ્ત";
+    $placeholder = "એક દેશ શોધો";
+    $todayCases = "આજે કેસ";
+    $todayDeaths = "આજે મૃત્યુ";
+    $critical = "જટિલ";
+    $pm = "(મિલિયન દીઠ)";
+    $country = "દેશોનું નામ";
+    $siteupdates = "ગુજરતી ભાષા ઉમેર્યું";
+  }
+  else   if ($lang == "hindi") {
     # code...
     $header = "कोविद 19 लाइव ट्रैकर | हिंदी | बहुभाषी | Gladiolus Language Nectar";
     $heading = "बहुभाषी कोविद 19 लाइव ट्रैकर";
@@ -13,6 +30,12 @@ if (isset($_GET["lang"])) {
     $recovered = "स्वस्थ होनेवाला";
     $active = "संक्रमित";
     $placeholder = "एक देश की खोज करें";
+    $todayCases = "आज के मामले";
+    $todayDeaths = "आज मौतें";
+    $critical = "नाजुक";
+    $pm = "(प्रति मिलियन)";
+    $country = "देशों का नाम";
+    $siteupdates = "गुजराती भाषा को जोड़ा गया है";
   }
   else
 {
@@ -23,6 +46,12 @@ if (isset($_GET["lang"])) {
   $deaths = "Deaths";
   $recovered = "Recovered";
   $active = "Active";
+  $todayCases = "Today Cases";
+  $todayDeaths = "Today Deaths";
+  $critical = "Critical";
+  $pm = "(per million)";
+  $country = "Country";
+  $siteupdates ="Gujarati language has been added";
 
  }
 }
@@ -35,6 +64,12 @@ else
   $deaths = "Deaths";
   $recovered = "Recovered";
   $active = "Active";
+  $todayCases = "Today Cases";
+  $todayDeaths = "Today Deaths";
+  $critical = "Critical";
+  $pm = "(per million)";
+  $country ="Country";
+  $siteupdates = "Gujarati language has been added";
  }
 ?>
 
@@ -542,7 +577,8 @@ table{
   </div>
 
   <div class="notifications" >
-    <div class="block" style="background-color: red; width: 10%; height:100%; padding: 10px; color: white;  ">SITE UPDATES :</div>
+    <div class="block" style="background-color: red; width: 20%; height:50px; padding: 10px; color: white; float: left; ">SITE UPDATES :</div>
+    <div class="block" style="background-color: lightgreen; width: 80%; height:50px; padding:10px;padding-left: 50px;  color: blue; float: left; "><?php echo $siteupdates; ?></div>
   </div>
 
   <div style="margin: 14px; color: blue;">
@@ -551,7 +587,12 @@ table{
     <span class="helper"></span>
     <div>
         <div class="popupCloseButton">&times;</div>
-        <p>Add any HTML content<br />inside the popup box!</p>
+        <p>Select your languge<br /></p>
+        <p><a href="?lang=english">English</a></p>
+        <p><a href="?lang=hindi">हिंदी</a></p>
+        <p><a href="?lang=gujarati">ગુજરાતી</a></p>
+
+
     </div>
 </div>
   </div>
@@ -581,7 +622,7 @@ table{
               <input type="text" id="myInput" onkeyup="myFunction()" onfocus="focus()" onfocusout="focusout()" placeholder="Search for Country..." title="Type in a TAG" autofocus="true">
 
     <table id="myTable">
-  <tr><th style="height:30px; text-align: center;">Country</th><th style="height:30px; text-align: center;">Cases</th><th style="height:30px; text-align: center;">Today Cases</th><th style="height:30px; text-align: center;">Deaths</th><th style="height:30px; text-align: center;">Today Deaths</th><th style="height:30px; text-align: center;">Recovered</th><th style="height:30px; text-align: center;">Active</th><th style="height:30px; text-align: center;">Critical</th><th style="height:30px; text-align: center;">Cases(per million)</th><th style="height:30px; text-align: center;">Deaths(per million)</th></tr>
+  <tr><th style="height:30px; text-align: center;"><?php echo $country; ?></th><th style="height:30px; text-align: center;"><?php echo $cases; ?></th><th style="height:30px; text-align: center;"><?php echo $todayCases; ?></th><th style="height:30px; text-align: center;"><?php echo $deaths; ?></th><th style="height:30px; text-align: center;"><?php echo $todayDeaths; ?></th><th style="height:30px; text-align: center;"><?php echo $recovered; ?></th><th style="height:30px; text-align: center;"><?php echo $active; ?></th><th style="height:30px; text-align: center;"><?php echo $critical; ?></th><th style="height:30px; text-align: center;"><?php echo $cases.$pm; ?></th><th style="height:30px; text-align: center;"><?php echo $deaths.$pm; ?></th></tr>
 
   <?php
 
@@ -652,7 +693,7 @@ function myFunction() {
 hitApiWorld();
   </script>
   <script type="text/javascript">
-    $(window).load(function () {
+    $(document).ready(function () {
     $(".trigger_popup_fricc").click(function(){
        $('.hover_bkgr_fricc').show();
     });
