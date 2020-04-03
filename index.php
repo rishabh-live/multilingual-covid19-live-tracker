@@ -1,4 +1,5 @@
 <?php
+$siteupdates = "ગુજરતી ભાષા ઉમેર્યું | తెలుగు భాష జోడించబడింది |";
 if (isset($_GET["lang"])) {
   # code...
   $lang = $_GET["lang"];
@@ -18,7 +19,7 @@ if (isset($_GET["lang"])) {
     $critical = "જટિલ";
     $pm = "(મિલિયન દીઠ)";
     $country = "દેશોનું નામ";
-    $siteupdates = "ગુજરતી ભાષા ઉમેર્યું";
+    
   }
   else   if ($lang == "hindi") {
     # code...
@@ -35,7 +36,24 @@ if (isset($_GET["lang"])) {
     $critical = "नाजुक";
     $pm = "(प्रति मिलियन)";
     $country = "देशों का नाम";
-    $siteupdates = "गुजराती भाषा को जोड़ा गया है";
+    
+  }
+  else   if ($lang == "telugu") {
+    # code...
+    $header = "COVID 19 లైవ్ ట్రాకర్ | తెలుగు | బహుభాషా | Gladiolus Language Nectar";
+    $heading = "బహుభాషా COVID 19 లైవ్ ట్రాకర్";
+    $noca = "ప్రభావితమైన దేశాల సంఖ్య: ";
+    $cases = "ప్రభావితం";
+    $deaths = "మరణాలు";
+    $recovered = "కోలుకున్న";
+    $active = "క్రియాశీల";
+    $placeholder = "ఒక దేశాన్ని శోధించండి";
+    $todayCases = "నేడు కేసులు";
+    $todayDeaths = "నేడు మరణాలు";
+    $critical = "క్లిష్టమైన";
+    $pm = "(మిలియన్‌కు)";
+    $country = "దేశం ";
+    
   }
   else
 {
@@ -51,7 +69,8 @@ if (isset($_GET["lang"])) {
   $critical = "Critical";
   $pm = "(per million)";
   $country = "Country";
-  $siteupdates ="Gujarati language has been added";
+  $placeholder = "Search Country...";
+  
 
  }
 }
@@ -69,7 +88,8 @@ else
   $critical = "Critical";
   $pm = "(per million)";
   $country ="Country";
-  $siteupdates = "Gujarati language has been added";
+  $placeholder = "Search Country...";
+  
  }
 ?>
 
@@ -475,16 +495,7 @@ table{
   box-sizing: border-box;
 }
 
-#myInput {
-  background-image: url('https://www.w3schools.com/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
+
 
 #myTable {
   border-collapse: collapse;
@@ -506,64 +517,7 @@ table{
   background-color: #f1f1f1;
 }
 
-/* Popup box BEGIN */
-.hover_bkgr_fricc{
-    background:rgba(0,0,0,.4);
-    cursor:pointer;
-    display:none;
-    height:100%;
-    position:fixed;
-    text-align:center;
-    top:0;
-    width:100%;
-    z-index:10000;
-}
-.hover_bkgr_fricc .helper{
-    display:inline-block;
-    height:100%;
-    vertical-align:middle;
-}
-.hover_bkgr_fricc > div {
-    background-color: #fff;
-    box-shadow: 10px 10px 60px #555;
-    display: inline-block;
-    height: auto;
-    max-width: 551px;
-    min-height: 100px;
-    vertical-align: middle;
-    width: 60%;
-    position: relative;
-    border-radius: 8px;
-    padding: 15px 5%;
-}
-.popupCloseButton {
-    background-color: #fff;
-    border: 3px solid #999;
-    border-radius: 50px;
-    cursor: pointer;
-    display: inline-block;
-    font-family: arial;
-    font-weight: bold;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    font-size: 25px;
-    line-height: 30px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-}
-.popupCloseButton:hover {
-    background-color: #ccc;
-}
-.trigger_popup_fricc {
-    cursor: pointer;
-    font-size: 20px;
-    margin: 20px;
-    display: inline-block;
-    font-weight: bold;
-}
-/* Popup box BEGIN */
+
 </style>
 </head>
 <body>
@@ -578,7 +532,7 @@ table{
 
   <div class="notifications" >
     <div class="block" style="background-color: red; width: 20%; height:50px; padding: 10px; color: white; float: left; ">SITE UPDATES :</div>
-    <div class="block" style="background-color: lightgreen; width: 80%; height:50px; padding:10px;padding-left: 50px;  color: blue; float: left; "><?php echo $siteupdates; ?></div>
+    <div class="block" style="background-color: lightgreen; width: 80%; height:50px; padding:10px;  color: blue; float: left; "><marquee> <?php echo $siteupdates; ?></marquee></div>
   </div>
 
   <div style="margin: 14px; color: blue;">
@@ -591,6 +545,7 @@ table{
         <p><a href="?lang=english">English</a></p>
         <p><a href="?lang=hindi">हिंदी</a></p>
         <p><a href="?lang=gujarati">ગુજરાતી</a></p>
+        <p><a href="?lang=telugu">తెలుగు</a></p>
 
 
     </div>
@@ -619,10 +574,10 @@ table{
     </center> 
   </div>
   <div class="global-chart">
-              <input type="text" id="myInput" onkeyup="myFunction()" onfocus="focus()" onfocusout="focusout()" placeholder="Search for Country..." title="Type in a TAG" autofocus="true">
+              <input type="text" id="myInput" onkeyup="myFunction()"  placeholder="<?php echo $placeholder;?>" title="Type in a TAG" autofocus="true">
 
     <table id="myTable">
-  <tr><th style="height:30px; text-align: center;"><?php echo $country; ?></th><th style="height:30px; text-align: center;"><?php echo $cases; ?></th><th style="height:30px; text-align: center;"><?php echo $todayCases; ?></th><th style="height:30px; text-align: center;"><?php echo $deaths; ?></th><th style="height:30px; text-align: center;"><?php echo $todayDeaths; ?></th><th style="height:30px; text-align: center;"><?php echo $recovered; ?></th><th style="height:30px; text-align: center;"><?php echo $active; ?></th><th style="height:30px; text-align: center;"><?php echo $critical; ?></th><th style="height:30px; text-align: center;"><?php echo $cases.$pm; ?></th><th style="height:30px; text-align: center;"><?php echo $deaths.$pm; ?></th></tr>
+  <tr><th style="height:30px; text-align: center;"><?php echo $country; ?></th><th style="height:30px; text-align: center;"><?php echo $cases; ?></th><th style="height:30px; text-align: center;"><?php echo $todayCases; ?></th><th style="height:30px; text-align: center;"><?php echo $deaths; ?></th><th style="height:30px; text-align: center;"><?php echo $todayDeaths; ?></th><th style="height:30px; text-align: center;"><?php echo $recovered; ?></th><th style="height:30px; text-align: center;"><?php echo $active; ?></th><th style="height:30px; text-align: center;"><?php echo $critical; ?></th><th style="height:30px; text-align: center;" id="nomobile"><?php echo $cases."<br>".$pm; ?></th><th style="height:30px; text-align: center;" id="nomobile"><?php echo $deaths."<br>".$pm; ?></th></tr>
 
   <?php
 
@@ -631,7 +586,7 @@ table{
   for ($i=0; $i < sizeof($json) ; $i++) { 
     # code...
     ?>
-<tr><td style="height:30px; text-align: center;"><?php echo $json[$i]["country"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["cases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayCases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["deaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayDeaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["recovered"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["active"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["critical"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["casesPerOneMillion"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["deathsPerOneMillion"]; ?></td></tr>
+<tr><td style="height:30px; text-align: center;"><?php echo $json[$i]["country"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["cases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayCases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["deaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayDeaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["recovered"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["active"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["critical"]; ?></td><td style="height:30px; text-align: center;" id="nomobile"><?php echo $json[$i]["casesPerOneMillion"]; ?></td><td style="height:30px; text-align: center;" id="nomobile"><?php echo $json[$i]["deathsPerOneMillion"]; ?></td></tr>
     <?php
   }
   ?>
