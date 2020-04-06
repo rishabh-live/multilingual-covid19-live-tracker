@@ -2,12 +2,15 @@
 Visit http://covid19.languagenectar.com
 
 
-#Contribution
+# Contribution
+
 You Can Contribute to COVID19 Live Tracker too...
 
 Copy The Following. Translate it to your own language and send it to rishabh@codeugly.tech. 
 
 Do write Your Name. And Language you have translated to.
+
+```php
 
 {
   $header = "COVID 19 Live Tracker | English | Multilingual | Gladiolus Language Nectar";
@@ -24,5 +27,5 @@ Do write Your Name. And Language you have translated to.
   $country = "Country";
   $placeholder = "Search Country...";
 }
-
+```
 
