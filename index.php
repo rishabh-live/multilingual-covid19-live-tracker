@@ -1,5 +1,5 @@
 <?php
-$siteupdates = "ગુજરતી ભાષા ઉમેર્યું | తెలుగు భాష జోడించబడింది |";
+$siteupdates = "ગુજરતી ભાષા ઉમેર્યું | తెలుగు భాష జోడించబడింది | नेपाली भाषा थपिएको छ |";
 if (isset($_GET["lang"])) {
   # code...
   $lang = $_GET["lang"];
@@ -36,6 +36,23 @@ if (isset($_GET["lang"])) {
     $critical = "नाजुक";
     $pm = "(प्रति मिलियन)";
     $country = "देशों का नाम";
+    
+  }
+  else   if ($lang == "nepali") {
+    # code...
+    $header = "कोविड 19  लाइभ ट्र्याकर | बहुभाषी | Gladiolus Language Nectar";
+    $heading = "बहुभाषी कोविड 19 लाईभ ट्र्याकर";
+    $noca = "प्रभावित देशहरूको संख्या : ";
+    $cases = "केसहरु";
+    $deaths = "मृत्यु";
+    $recovered = "स्वस्थ";
+    $active = "संक्रमित";
+    $placeholder = "देश खोज्नुहोस्";
+    $todayCases = "आज केसहरू";
+    $todayDeaths = "आज मृत्यु";
+    $critical = "आलोचनात्मक";
+    $pm = "(प्रति मिलियन)";
+    $country = "देशहरूको नाम";
     
   }
   else   if ($lang == "telugu") {
@@ -100,7 +117,8 @@ else
 <head>
   <title><?php echo $header;?></title>
   <meta charset="utf-8">
-  
+  <meta name="keywords" content="covid , ncovid19, langauge nectar, Multilingual live Tracker, nepali, gujarati, english, telugu, gladiolus, french, italy, china, wuhan">
+  <meta name="description" content="This is worlds first Multilingual COVID19 Live Tracker. Designed by developers of Gladiolus Language Nectar.">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="mobile-style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -536,21 +554,23 @@ table{
   </div>
 
   <div style="margin: 14px; color: blue;">
-   <center> <a class="trigger_popup_fricc">Language</a></center>
+   <center> <a class="trigger_popup_fricc">Language</a> <a href="https://github.com/rishabharya1422/multilingual-covid19-live-tracker" class="trigger_popup_fricc_git" target="_blank">Github (Source Code)</a> </center>
    <div class="hover_bkgr_fricc">
     <span class="helper"></span>
     <div>
         <div class="popupCloseButton">&times;</div>
-        <p>Select your languge<br /></p>
+       
         <p><a href="?lang=english">English</a></p>
         <p><a href="?lang=hindi">हिंदी</a></p>
         <p><a href="?lang=gujarati">ગુજરાતી</a></p>
         <p><a href="?lang=telugu">తెలుగు</a></p>
+        <p><a href="?lang=nepali">नेपाली</a></p>
 
 
     </div>
 </div>
   </div>
+  <hr>
 
   <div class="data">
 
@@ -593,6 +613,7 @@ table{
 </table>
     
   </div>
+
 
   <footer style="margin-top: 70px; margin-bottom: 10px;">
     <hr>&copy; <?php echo date('Y'); ?>Gladiolus Langauge Nectar<i>All Rights Reserved.</i></footer>

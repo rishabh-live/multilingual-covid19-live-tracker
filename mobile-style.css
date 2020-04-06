@@ -79,6 +79,13 @@
     display: inline-block;
     font-weight: bold;
 }
+.trigger_popup_fricc_git {
+    cursor: pointer;
+    font-size: 40px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
 /* Popup box BEGIN */
 
 #nomobile{

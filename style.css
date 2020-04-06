@@ -126,11 +126,19 @@ body{
     font-weight: bold;
 }
 /* Popup box BEGIN */
+.trigger_popup_fricc_git {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
 
 a{
 	text-decoration: none;
-
+	color: blue;
 }
+
 
 #myInput {
   background-image: url('https://www.w3schools.com/css/searchicon.png');
