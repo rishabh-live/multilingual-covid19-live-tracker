@@ -38,6 +38,22 @@ if (isset($_GET["lang"])) {
     $country = "देशों का नाम";
     
   }
+  else if($lang == "french")
+    {
+   $header = "COVID 19 Live Tracker | French | Multilingue | Gladiolus Language Nectar";
+   $header = "Multilingue COVID19 Live Tracker";
+   $noca = "Nombre de pays touchés:";
+   $cases = "Cas";
+   $deaths = "Décès";
+   $recovered = "récupéré";
+   $active = "Actif";
+   $todayCases = "Cas d'aujourd'hui";
+   $todayDeaths = "Décès aujourd'hui";
+   $critical = "Critique";
+   $pm = "(par million)";
+   $country = "Pays";
+   $placeholder = "Rechercher le pays ...";
+}
   else   if ($lang == "nepali") {
     # code...
     $header = "कोविड 19  लाइभ ट्र्याकर | बहुभाषी | Gladiolus Language Nectar";
@@ -565,6 +581,7 @@ table{
         <p><a href="?lang=gujarati">ગુજરાતી</a></p>
         <p><a href="?lang=telugu">తెలుగు</a></p>
         <p><a href="?lang=nepali">नेपाली</a></p>
+        <p><a href="?lang=french">French</a>&nbsp; by &nbsp;<a href="https://www.linkedin.com/in/raghunandan-chaudhary-3ab9971a3/" target="_blank">RAGHUNANDAN CHAUDHARY</a></p>
 
 
     </div>
