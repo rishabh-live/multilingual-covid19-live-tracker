@@ -6,7 +6,11 @@ Visit http://covid19.languagenectar.com
 
 You Can Contribute to COVID19 Live Tracker too...
 
-Copy The Following. Translate it to your own language and send it to rishabh@codeugly.tech. 
+Copy The Following. Translate it to your own language and send it to 
+rishabh@codeugly.tech ,
+contact@codeugly.tech,
+sales@codeugly.tech,
+hey@codeugly.tech. 
 
 Do write Your Name. And Language you have translated to.
 
