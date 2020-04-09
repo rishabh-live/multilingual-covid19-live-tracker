@@ -1,5 +1,6 @@
 <?php
-$siteupdates = "ગુજરતી ભાષા ઉમેર્યું | తెలుగు భాష జోడించబడింది | नेपाली भाषा थपिएको छ |";
+$siteupdates = "ગુજરતી ભાષા ઉમેર્યું | తెలుగు భాష జోడించబడింది | नेपाली भाषा थपिएको छ | Ajout de la langue française | Country Rank Now Available |";
+$countryRankOf = "Rank of Country";
 if (isset($_GET["lang"])) {
   # code...
   $lang = $_GET["lang"];
@@ -19,6 +20,7 @@ if (isset($_GET["lang"])) {
     $critical = "જટિલ";
     $pm = "(મિલિયન દીઠ)";
     $country = "દેશોનું નામ";
+    $countryRankOf = "દેશનો ક્રમ";
     
   }
   else   if ($lang == "hindi") {
@@ -36,23 +38,31 @@ if (isset($_GET["lang"])) {
     $critical = "नाजुक";
     $pm = "(प्रति मिलियन)";
     $country = "देशों का नाम";
+    $countryRankOf = "देश की रैंक";
     
   }
   else if($lang == "french")
     {
-   $header = "COVID 19 Live Tracker | French | Multilingue | Gladiolus Language Nectar";
-   $header = "Multilingue COVID19 Live Tracker";
-   $noca = "Nombre de pays touchés:";
-   $cases = "Cas";
-   $deaths = "Décès";
-   $recovered = "récupéré";
-   $active = "Actif";
-   $todayCases = "Cas d'aujourd'hui";
-   $todayDeaths = "Décès aujourd'hui";
-   $critical = "Critique";
-   $pm = "(par million)";
-   $country = "Pays";
-   $placeholder = "Rechercher le pays ...";
+   $header = "COVID 19 Live Tracker | French | Multilingue | Gladiolus Language Nectar";
+   $heading = "Multilingue COVID19 Live Tracker";
+   $noca = "Nombre de pays touchés:";
+   $cases = "Cas";
+   $deaths = "Décès";
+   $recovered = "récupéré";
+   $active = "Actif";
+   $todayCases = "Cas d'aujourd'hui";
+   $todayDeaths = "Décès aujourd'hui";
+   $critical = "Critique";
+   $pm = "(par million)";
+   $country = "Pays";
+   $placeholder = "Rechercher le pays ...";
+   $linkedin = "https://www.linkedin.com/in/raghunandan-chaudhary-3ab9971a3/";
+   $nameofcontribor = "Raghunandan Chaudhary";
+   $countryRankOf = "Rang du pays";
+
+
+
+   
 }
   else   if ($lang == "nepali") {
     # code...
@@ -69,6 +79,7 @@ if (isset($_GET["lang"])) {
     $critical = "आलोचनात्मक";
     $pm = "(प्रति मिलियन)";
     $country = "देशहरूको नाम";
+    $countryRankOf = "देशको रैंक";
     
   }
   else   if ($lang == "telugu") {
@@ -86,6 +97,7 @@ if (isset($_GET["lang"])) {
     $critical = "క్లిష్టమైన";
     $pm = "(మిలియన్‌కు)";
     $country = "దేశం ";
+    $countryRankOf = "దేశం యొక్క ర్యాంక్";
     
   }
   else
@@ -109,7 +121,8 @@ if (isset($_GET["lang"])) {
 }
 else
 {
-  $header = "COVID 19 Live Tracker | English | Multilingual | Gladiolus Language Nectar";
+
+   $header = "COVID 19 Live Tracker | English | Multilingual | Gladiolus Language Nectar";
   $heading = "Multilingual COVID19 Live Tracker";
   $noca = "No. of countries affected :";
   $cases = "Cases";
@@ -120,8 +133,10 @@ else
   $todayDeaths = "Today Deaths";
   $critical = "Critical";
   $pm = "(per million)";
-  $country ="Country";
+  $country = "Country";
   $placeholder = "Search Country...";
+  
+  header("Refresh:0,url=http://covid19.languagenectar.com?lang=english&contrbutor=no&country=no");
   
  }
 ?>
@@ -138,6 +153,18 @@ else
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="mobile-style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B371C980HN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B371C980HN');
+</script>
+<!-- /Google Analytics -->
+
   <style>
             table{
                 margin-top: 70px;
@@ -517,9 +544,7 @@ input:focus, textarea:focus, select:focus{
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
-table{
-    cursor:none;
-}
+
 
 
 
@@ -570,18 +595,43 @@ table{
   </div>
 
   <div style="margin: 14px; color: blue;">
-   <center> <a class="trigger_popup_fricc">Language</a> <a href="https://github.com/rishabharya1422/multilingual-covid19-live-tracker" class="trigger_popup_fricc_git" target="_blank">Github (Source Code)</a> </center>
+   <center> <a class="trigger_popup_fricc">Language</a> <a href="https://github.com/rishabharya1422/multilingual-covid19-live-tracker" class="trigger_popup_fricc_git" target="_blank">Github</a>
+
+      <?php
+
+    if ($_GET["country"] != "no") {
+      # code...
+      ?>
+      <a href="?lang=<?php echo $_GET['lang'];?>&contrbutor=<?php echo $_GET['contrbutor'];?>&country=no" class="trigger_popup_fricc_git">Global Data</a>
+      <?php
+    }
+
+    ?>
+
+    <?php
+
+    if ($_GET["contrbutor"] == "french") {
+      # code...
+      ?>
+      <a href="<?php echo $linkedin; ?>" class="trigger_popup_fricc_git" target="_blank"><?php echo $nameofcontribor; ?></a>
+      <?php
+    }
+
+    ?>
+
+
+    </center>
    <div class="hover_bkgr_fricc">
     <span class="helper"></span>
     <div>
         <div class="popupCloseButton">&times;</div>
        
-        <p><a href="?lang=english">English</a></p>
-        <p><a href="?lang=hindi">हिंदी</a></p>
-        <p><a href="?lang=gujarati">ગુજરાતી</a></p>
-        <p><a href="?lang=telugu">తెలుగు</a></p>
-        <p><a href="?lang=nepali">नेपाली</a></p>
-        <p><a href="?lang=french">French</a>&nbsp; by &nbsp;<a href="https://www.linkedin.com/in/raghunandan-chaudhary-3ab9971a3/" target="_blank">RAGHUNANDAN CHAUDHARY</a></p>
+        <p><a href="?lang=english&contrbutor=no&country=<?php echo $_GET['country']; ?>">English</a></p>
+        <p><a href="?lang=hindi&contrbutor=no&country=<?php echo $_GET['country']; ?>">हिंदी</a></p>
+        <p><a href="?lang=gujarati&contrbutor=no&country=<?php echo $_GET['country']; ?>">ગુજરાતી</a></p>
+        <p><a href="?lang=telugu&contrbutor=no&country=<?php echo $_GET['country']; ?>">తెలుగు</a></p>
+        <p><a href="?lang=nepali&contrbutor=no&country=<?php echo $_GET['country']; ?>">नेपाली</a></p>
+        <p><a href="?lang=french&contrbutor=french&country=<?php echo $_GET['country']; ?>">French</a><br></p>
 
 
     </div>
@@ -590,6 +640,70 @@ table{
   <hr>
 
   <div class="data">
+    <?php
+
+    $globalData = json_decode(file_get_contents("https://corona.lmao.ninja/all/"),true);
+
+    $globalCases = $globalData["cases"];
+    $globalDeath = $globalData["deaths"];
+    $globalActive = $globalData["active"];
+    $globalRecovered = $globalData["recovered"];
+
+    if ($_GET["country"] != "no") {
+
+
+
+
+      $countryDataAll  = json_decode(file_get_contents("https://corona.lmao.ninja/countries"),true);
+
+      $countryArray;
+
+      for ($i=0; $i < sizeof($countryDataAll) ; $i++) { 
+        # code...
+        
+
+        if ($_GET["country"] === $countryDataAll[$i]["country"]) {
+          # code...
+          $rank = $i+1;
+          $casesNew = $countryDataAll[$i]["cases"];
+          $deathsNew = $countryDataAll[$i]["deaths"];
+          $recoveredNew = $countryDataAll[$i]["recovered"];
+          $activeNew = $countryDataAll[$i]["active"];
+          $casesPer = number_format(($casesNew / $globalCases)*100, 2 , '.' , ',');
+          $deathsPer = number_format(($deathsNew / $globalDeath)*100, 2 , '.' , ',');
+          $recPer = number_format(($recoveredNew / $globalRecovered)*100, 2 , '.' , ',');
+          $activePer = number_format(($activeNew / $globalActive)*100, 2 , '.' , ',');
+        }
+
+      }
+
+      
+      ?>
+      <center> 
+
+      <div class="country-no">
+          <label><?php echo $countryRankOf."<br>".$_GET["country"]." : ".$rank; ?></label>
+          
+      </div>
+
+   
+
+      <div class="card-holder">
+        <center>
+        <div class="card"><label id="cases"><?php echo $cases; ?></label><br><div class="noholder"><label id="no-cases"><?php echo $casesNew."<br>(".$casesPer."%)" ;?></label></div></div>
+        <div class="card"><label id="deaths"><?php echo $deaths; ?></label><br><div class="noholder"><label id="no-deaths"><?php echo $deathsNew."<br>(".$deathsPer."%)" ;?></label></div></div>
+        <div class="card"><label id="recovered"><?php echo $recovered; ?></label><br><div class="noholder"><label id="no-recovered"><?php echo $recoveredNew."<br>(".$recPer."%)" ;?></label></div></div>
+        <div class="card"><label id="active"><?php echo $active; ?></label><br><div class="noholder"><label id="no-active"><?php echo $activeNew."<br>(".$activePer."%)" ;?></label></div></div>
+      </center>
+      </div>
+
+
+    </center> 
+
+
+      <?php
+    }else{
+   ?>
 
     <center> 
 
@@ -598,20 +712,23 @@ table{
           <label id="noofcountry"><?php $i = 0; $contjson = json_decode(file_get_contents("https://corona.lmao.ninja/all/"),true); echo $contjson["affectedCountries"]; ?></label>
       </div>
 
+   
+
       <div class="card-holder">
         <center>
-        <div class="card"><label id="cases"><?php echo $cases; ?></label><br><div class="noholder"><label id="no-cases"></label></div></div>
-        <div class="card"><label id="deaths"><?php echo $deaths; ?></label><br><div class="noholder"><label id="no-deaths"></label></div></div>
-        <div class="card"><label id="recovered"><?php echo $recovered; ?></label><br><div class="noholder"><label id="no-recovered"></label></div></div>
-        <div class="card"><label id="active"><?php echo $active; ?></label><br><div class="noholder"><label id="no-active"></label></div></div>
+        <div class="card"><label id="cases"><?php echo $cases; ?></label><br><div class="noholder"><label id="no-cases"><?php echo $globalCases ;?></label></div></div>
+        <div class="card"><label id="deaths"><?php echo $deaths; ?></label><br><div class="noholder"><label id="no-deaths"><?php echo $globalDeath ;?></label></div></div>
+        <div class="card"><label id="recovered"><?php echo $recovered; ?></label><br><div class="noholder"><label id="no-recovered"><?php echo $globalRecovered ;?></label></div></div>
+        <div class="card"><label id="active"><?php echo $active; ?></label><br><div class="noholder"><label id="no-active"><?php echo $globalActive ;?></label></div></div>
       </center>
       </div>
 
 
     </center> 
+<?php }   ?>
   </div>
   <div class="global-chart">
-              <input type="text" id="myInput" onkeyup="myFunction()"  placeholder="<?php echo $placeholder;?>" title="Type in a TAG" autofocus="true">
+              <input type="text" id="myInput" onkeyup="myFunction()"  placeholder="<?php echo $placeholder;?>" title="<?php echo $placeholder;?>" >
 
     <table id="myTable">
   <tr><th style="height:30px; text-align: center;"><?php echo $country; ?></th><th style="height:30px; text-align: center;"><?php echo $cases; ?></th><th style="height:30px; text-align: center;"><?php echo $todayCases; ?></th><th style="height:30px; text-align: center;"><?php echo $deaths; ?></th><th style="height:30px; text-align: center;"><?php echo $todayDeaths; ?></th><th style="height:30px; text-align: center;"><?php echo $recovered; ?></th><th style="height:30px; text-align: center;"><?php echo $active; ?></th><th style="height:30px; text-align: center;"><?php echo $critical; ?></th><th style="height:30px; text-align: center;" id="nomobile"><?php echo $cases."<br>".$pm; ?></th><th style="height:30px; text-align: center;" id="nomobile"><?php echo $deaths."<br>".$pm; ?></th></tr>
@@ -621,9 +738,12 @@ table{
   $json = json_decode(file_get_contents("https://corona.lmao.ninja/countries"),true);
 
   for ($i=0; $i < sizeof($json) ; $i++) { 
+
     # code...
+
+    $link = "?lang=".$_GET["lang"]."&country=".$json[$i]["country"]."&contrbutor=".$_GET["contrbutor"];
     ?>
-<tr><td style="height:30px; text-align: center;"><?php echo $json[$i]["country"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["cases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayCases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["deaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayDeaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["recovered"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["active"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["critical"]; ?></td><td style="height:30px; text-align: center;" id="nomobile"><?php echo $json[$i]["casesPerOneMillion"]; ?></td><td style="height:30px; text-align: center;" id="nomobile"><?php echo $json[$i]["deathsPerOneMillion"]; ?></td></tr>
+<tr><td style="height:30px;"><a  href="<?php echo $link; ?>"><?php echo $json[$i]["country"]; ?></a></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["cases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayCases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["deaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayDeaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["recovered"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["active"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["critical"]; ?></td><td style="height:30px; text-align: center;" id="nomobile"><?php echo $json[$i]["casesPerOneMillion"]; ?></td><td style="height:30px; text-align: center;" id="nomobile"><?php echo $json[$i]["deathsPerOneMillion"]; ?></td></tr>
     <?php
   }
   ?>
@@ -633,7 +753,9 @@ table{
 
 
   <footer style="margin-top: 70px; margin-bottom: 10px;">
-    <hr>&copy; <?php echo date('Y'); ?>Gladiolus Langauge Nectar<i>All Rights Reserved.</i></footer>
+    <hr><center>
+    &copy; <?php echo date('Y'); ?>&nbsp; Gladiolus Langauge Nectar. <i>All Rights Reserved.</i>
+  </center></footer>
 
 
   <script type="text/javascript">
@@ -659,10 +781,7 @@ table{
 }
 
 function updateTextWorld(cases, deaths, recovered){
-  document.getElementById("no-cases").innerHTML = cases;
-  document.getElementById("no-deaths").innerHTML = deaths;
-  document.getElementById("no-recovered").innerHTML = recovered;
-    document.getElementById("no-active").innerHTML = active;
+ 
 
 }
 function myFunction() {
