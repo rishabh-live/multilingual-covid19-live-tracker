@@ -136,7 +136,7 @@ else
   $country = "Country";
   $placeholder = "Search Country...";
   
-  header("Refresh:0,url=http://covid19.languagenectar.com?lang=english&contrbutor=no&country=no");
+  header("Refresh:0,url=http://covid19.languagenectar.com?lang=english&contrbutor=no&country=no&rank=0");
   
  }
 ?>
@@ -153,6 +153,7 @@ else
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="mobile-style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
   <!-- Google Analytics -->
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B371C980HN"></script>
@@ -626,12 +627,12 @@ input:focus, textarea:focus, select:focus{
     <div>
         <div class="popupCloseButton">&times;</div>
        
-        <p><a href="?lang=english&contrbutor=no&country=<?php echo $_GET['country']; ?>">English</a></p>
-        <p><a href="?lang=hindi&contrbutor=no&country=<?php echo $_GET['country']; ?>">हिंदी</a></p>
-        <p><a href="?lang=gujarati&contrbutor=no&country=<?php echo $_GET['country']; ?>">ગુજરાતી</a></p>
-        <p><a href="?lang=telugu&contrbutor=no&country=<?php echo $_GET['country']; ?>">తెలుగు</a></p>
-        <p><a href="?lang=nepali&contrbutor=no&country=<?php echo $_GET['country']; ?>">नेपाली</a></p>
-        <p><a href="?lang=french&contrbutor=french&country=<?php echo $_GET['country']; ?>">French</a><br></p>
+        <p><a href="?lang=english&contrbutor=no&country=<?php echo $_GET['country']; ?>&rank=<?php echo $_GET['rank']; ?>">English</a></p>
+        <p><a href="?lang=hindi&contrbutor=no&country=<?php echo $_GET['country']; ?>&rank=<?php echo $_GET['rank']; ?>">हिंदी</a></p>
+        <p><a href="?lang=gujarati&contrbutor=no&country=<?php echo $_GET['country']; ?>&rank=<?php echo $_GET['rank']; ?>">ગુજરાતી</a></p>
+        <p><a href="?lang=telugu&contrbutor=no&country=<?php echo $_GET['country']; ?>&rank=<?php echo $_GET['rank']; ?>">తెలుగు</a></p>
+        <p><a href="?lang=nepali&contrbutor=no&country=<?php echo $_GET['country']; ?>&rank=<?php echo $_GET['rank']; ?>">नेपाली</a></p>
+        <p><a href="?lang=french&contrbutor=french&country=<?php echo $_GET['country']; ?>&rank=<?php echo $_GET['rank']; ?>">French</a><br></p>
 
 
     </div>
@@ -655,6 +656,7 @@ input:focus, textarea:focus, select:focus{
 
 
       $countryDataAll  = json_decode(file_get_contents("https://corona.lmao.ninja/countries"),true);
+
 
       $countryArray;
 
@@ -682,7 +684,7 @@ input:focus, textarea:focus, select:focus{
       <center> 
 
       <div class="country-no">
-          <label><?php echo $countryRankOf."<br>".$_GET["country"]." : ".$rank; ?></label>
+          <label><?php echo $countryRankOf."<br>".$_GET["country"]." : ".$_GET["rank"]; ?></label>
           
       </div>
 
@@ -731,22 +733,15 @@ input:focus, textarea:focus, select:focus{
               <input type="text" id="myInput" onkeyup="myFunction()"  placeholder="<?php echo $placeholder;?>" title="<?php echo $placeholder;?>" >
 
     <table id="myTable">
-  <tr><th style="height:30px; text-align: center;"><?php echo $country; ?></th><th style="height:30px; text-align: center;"><?php echo $cases; ?></th><th style="height:30px; text-align: center;"><?php echo $todayCases; ?></th><th style="height:30px; text-align: center;"><?php echo $deaths; ?></th><th style="height:30px; text-align: center;"><?php echo $todayDeaths; ?></th><th style="height:30px; text-align: center;"><?php echo $recovered; ?></th><th style="height:30px; text-align: center;"><?php echo $active; ?></th><th style="height:30px; text-align: center;"><?php echo $critical; ?></th><th style="height:30px; text-align: center;" id="nomobile"><?php echo $cases."<br>".$pm; ?></th><th style="height:30px; text-align: center;" id="nomobile"><?php echo $deaths."<br>".$pm; ?></th></tr>
+  <tr><th style="height:30px; text-align: center;" onclick="countryFunc()"><?php echo $country; ?></th><th style="height:30px; text-align: center;" onclick="retriver()"><?php echo $cases; ?></th><th style="height:30px; text-align: center;" onclick="todayCases()"><?php echo $todayCases; ?></th><th style="height:30px; text-align: center;" onclick="death()"><?php echo $deaths; ?></th><th onclick="todaydeath()" style="height:30px; text-align: center;"><?php echo $todayDeaths; ?></th><th onclick="recoverd()" style="height:30px; text-align: center;"><?php echo $recovered; ?></th><th onclick="infected()" style="height:30px; text-align: center;"><?php echo $active; ?></th><th style="height:30px; text-align: center;" onclick="critical()"><?php echo $critical; ?></th><th style="height:30px; text-align: center;" id="nomobile" onclick="casespm()"><?php echo $cases."<br>".$pm; ?></th><th style="height:30px; text-align: center;" id="nomobile" onclick="deathspm()"><?php echo $deaths."<br>".$pm; ?></th></tr>
 
-  <?php
 
-  $json = json_decode(file_get_contents("https://corona.lmao.ninja/countries"),true);
 
-  for ($i=0; $i < sizeof($json) ; $i++) { 
+  
 
-    # code...
+ 
+    <tbody id="myTableBody"></tbody>
 
-    $link = "?lang=".$_GET["lang"]."&country=".$json[$i]["country"]."&contrbutor=".$_GET["contrbutor"];
-    ?>
-<tr><td style="height:30px;"><a  href="<?php echo $link; ?>"><?php echo $json[$i]["country"]; ?></a></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["cases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayCases"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["deaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["todayDeaths"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["recovered"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["active"]; ?></td><td style="height:30px; text-align: center;"><?php echo $json[$i]["critical"]; ?></td><td style="height:30px; text-align: center;" id="nomobile"><?php echo $json[$i]["casesPerOneMillion"]; ?></td><td style="height:30px; text-align: center;" id="nomobile"><?php echo $json[$i]["deathsPerOneMillion"]; ?></td></tr>
-    <?php
-  }
-  ?>
 </table>
     
   </div>
@@ -817,6 +812,7 @@ hitApiWorld();
     });
 });
   </script>
+  <script type="text/javascript" src="script.js"></script>
 
 </body>
 </html>
