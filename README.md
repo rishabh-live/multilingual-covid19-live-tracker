@@ -36,7 +36,6 @@ Do write Your Name. And Language you have translated to.
 ## EXAMPLE
 ```php
 {
-    # code...
     $header = "कोविद 19 लाइव ट्रैकर | हिंदी | बहुभाषी | Gladiolus Language Nectar";
     $heading = "बहुभाषी कोविद 19 लाइव ट्रैकर";
     $noca = "प्रभावित देशों की संख्या : ";
