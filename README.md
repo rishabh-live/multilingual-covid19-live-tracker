@@ -33,3 +33,26 @@ Do write Your Name. And Language you have translated to.
 }
 ```
 
+## EXMAPLE
+```php
+{
+    # code...
+    $header = "कोविद 19 लाइव ट्रैकर | हिंदी | बहुभाषी | Gladiolus Language Nectar";
+    $heading = "बहुभाषी कोविद 19 लाइव ट्रैकर";
+    $noca = "प्रभावित देशों की संख्या : ";
+    $cases = "मामले";
+    $deaths = "लोगों की मृत्यु";
+    $recovered = "स्वस्थ होनेवाला";
+    $active = "संक्रमित";
+    $placeholder = "एक देश की खोज करें";
+    $todayCases = "आज के मामले";
+    $todayDeaths = "आज मौतें";
+    $critical = "नाजुक";
+    $pm = "(प्रति मिलियन)";
+    $country = "देशों का नाम";
+    $countryRankOf = "देश की रैंक";
+    
+  }
+  
+  ```
+
