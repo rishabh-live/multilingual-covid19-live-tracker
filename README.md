@@ -33,7 +33,7 @@ Do write Your Name. And Language you have translated to.
 }
 ```
 
-## EXMAPLE
+## EXAMPLE
 ```php
 {
     # code...
